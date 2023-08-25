@@ -13,8 +13,8 @@ namespace HTMLToWordConversion
     {
         static void Main(string[] args)
         {
-            string htmlFilePath = "D:\\github\\Sorting\\HTMLToWord\\HTMLToWord\\HTMLDocument.html";
-            string outputDirectory = "D:\\github\\Sorting\\HTMLToWord\\HTMLToWord"; // Specify the directory where you want to save the Word document
+            string htmlFilePath = "D:\\github\\Converter\\HTMLToWord\\HTMLToWord\\HTMLDocument.html";
+            string outputDirectory = "D:\\github\\Converter\\HTMLToWord\\HTMLToWord"; // Specify the directory where you want to save the Word document
 
             // Read HTML content
             string htmlContent = File.ReadAllText(htmlFilePath);
