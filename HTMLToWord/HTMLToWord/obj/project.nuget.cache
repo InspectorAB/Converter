@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "VNF4UoJZyP+uoyyf9GnZNi5HxZHgm+AfKqNu3FtB4pRdoSLLHG6xKvpt6MMEVUQBnbGUNeWQt9jm7Ac3ZmPWRQ==",
+  "success": true,
+  "projectFilePath": "D:\\github\\Converter\\HTMLToWord\\HTMLToWord\\HTMLToWord.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\ADITYA\\.nuget\\packages\\documentformat.openxml\\2.20.0\\documentformat.openxml.2.20.0.nupkg.sha512",
+    "C:\\Users\\ADITYA\\.nuget\\packages\\system.io.packaging\\4.7.0\\system.io.packaging.4.7.0.nupkg.sha512"
+  ],
+  "logs": []
+}
