@@ -1,47 +1,38 @@
 ﻿using System;
 using System.IO;
-using System.Reflection.Metadata;
-using DocumentFormat.OpenXml;
-using DocumentFormat.OpenXml.Packaging;
-using DocumentFormat.OpenXml.Wordprocessing;
-using static System.Net.Mime.MediaTypeNames;
-using Document = DocumentFormat.OpenXml.Wordprocessing.Document;
+using Aspose.Words;
+using Aspose.Words.Saving;
 
-namespace HTMLToWordConversion
+namespace HTMLToWordConversionWithAspose
 {
     class Program
     {
         static void Main(string[] args)
         {
-            string htmlFilePath = "D:\\github\\Converter\\HTMLToWord\\HTMLToWord\\HTMLDocument.html";
-            string outputDirectory = "D:\\github\\Converter\\HTMLToWord\\HTMLToWord"; // Specify the directory where you want to save the Word document
+            string htmlFilePath = "D:\\github\\Converter\\HTMLToWord\\HTMLToWord\\HTMLDocumentWithStyleAndGraph.html";
+            string outputDirectory = "D:\\github\\Converter\\HTMLToWord\\HTMLToWord"; 
 
             // Read HTML content
             string htmlContent = File.ReadAllText(htmlFilePath);
-
-            //removes the HTML tag using regex
-            string plainTextContent = System.Text.RegularExpressions.Regex.Replace(htmlContent, "<.*?>", "");
 
             // File generated based on TimeStamp
             string timestamp = DateTime.Now.ToString("yyyyMMddHHmmss");
             string wordFilePath = Path.Combine(outputDirectory, $"output_{timestamp}.docx");
 
-            // Setting content for the word document
-            using (WordprocessingDocument wordDocument = WordprocessingDocument.Create(wordFilePath, WordprocessingDocumentType.Document))
-            {
-                MainDocumentPart mainPart = wordDocument.AddMainDocumentPart();
-                mainPart.Document = new Document();
-                Body body = mainPart.Document.AppendChild(new Body());
+            // Converting HTML content to Word document 
+            ConvertHtmlToWordWithAspose(htmlContent, wordFilePath);
 
-                // Convert HTML content to Word elements
-                Paragraph paragraph = new Paragraph();
-                Run run = new Run();
-                run.Append(new DocumentFormat.OpenXml.Wordprocessing.Text(plainTextContent)); 
-                paragraph.Append(run);
-                body.Append(paragraph);
-            }
+            Console.WriteLine("HTML to Word conversion completed using Aspose.Words.");
+        }
 
-            Console.WriteLine("HTML to Word conversion completed.");
+        static void ConvertHtmlToWordWithAspose(string htmlContent, string outputFilePath)
+        {
+            Document doc = new Document();
+            DocumentBuilder builder = new DocumentBuilder(doc);
+            builder.InsertHtml(htmlContent);
+            
+
+            doc.Save(outputFilePath, SaveFormat.Docx);
         }
     }
 }
