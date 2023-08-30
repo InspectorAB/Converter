@@ -12,7 +12,7 @@ namespace HTMLToWordConversionWithAspose
     {
         static void Main(string[] args)
         {
-            string htmlFilePath = "D:\\github\\Converter\\HTMLToWord\\HTMLToWord\\HTMLDocumentWithStyleAndGraph.html";
+            string htmlFilePath = "D:\\github\\Converter\\HTMLToWord\\HTMLToWord\\HTMLDocumentWithStyle.html";
             string dynamicHTMLFilePath = "D:\\github\\Converter\\HTMLToWord\\HTMLToWord\\Dynamic.html";
             string outputDirectory = "D:\\github\\Converter\\HTMLToWord\\HTMLToWord";
 
@@ -33,7 +33,7 @@ namespace HTMLToWordConversionWithAspose
 
             // File generated based on TimeStamp
             string timestamp = DateTime.Now.ToString("yyyyMMddHHmmss");
-            string wordFilePath = Path.Combine(outputDirectory, $"output_{timestamp}.docx");
+            string wordFilePath = Path.Combine(outputDirectory, $"output_{timestamp}Stylingapplied.docx");
 
             // Converting HTML content to Word document 
             ConvertHtmlToWordWithAspose(htmlContent, wordFilePath);
