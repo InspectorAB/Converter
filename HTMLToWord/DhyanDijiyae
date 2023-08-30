@@ -1,0 +1,14 @@
+This is currently in progress for converting HTML to Word Doc.
+
+Here I have tried below scenarios and their results:
+1. HTML Template Raw to Word Doc -> Success
+2. HTML Template With Inline Styling to Word Doc -> Success
+3. HTML Template with Table Without Styling to Word Doc -> Success
+4. HTML Template with Table with styling to Word Doc -> I haven't tried yet but I believe it will sucess!
+5. HTML Tempalte with graph with/without styling to Word Doc -> Still in progress, dont open the word doc with graph in name its empty!
+
+
+If any more scenarios comes to my mind I will add here and their results, currently using console application to do all the working as it is simple.
+
+Regards,
+AB
