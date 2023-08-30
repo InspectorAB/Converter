@@ -9,7 +9,8 @@
       "HTMLToWord/1.0.0": {
         "dependencies": {
           "Aspose.Words": "23.8.0",
-          "DocumentFormat.OpenXml": "2.20.0"
+          "DocumentFormat.OpenXml": "2.20.0",
+          "HtmlAgilityPack": "1.11.52"
         },
         "runtime": {
           "HTMLToWord.dll": {}
@@ -42,6 +43,14 @@
           "lib/net6.0/DocumentFormat.OpenXml.dll": {
             "assemblyVersion": "2.20.0.0",
             "fileVersion": "2.20.0.0"
+          }
+        }
+      },
+      "HtmlAgilityPack/1.11.52": {
+        "runtime": {
+          "lib/netstandard2.0/HtmlAgilityPack.dll": {
+            "assemblyVersion": "1.11.52.0",
+            "fileVersion": "1.11.52.0"
           }
         }
       },
@@ -191,6 +200,13 @@
       "sha512": "sha512-+oFMsEppo/W6KpGTRXaJl2jTFYn9zeon4FaZuDoCijQ1/0JaPENaCef7d4Y3f8v116eKhVBwd4Ya+/NDglxkjw==",
       "path": "documentformat.openxml/2.20.0",
       "hashPath": "documentformat.openxml.2.20.0.nupkg.sha512"
+    },
+    "HtmlAgilityPack/1.11.52": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-qfJzz0eEgoO5O6uA1PpH4wmU4yz64PKnDolAW41vTlCfRyPlAyZIJANg+QYmQgxiWg/cLUAkcLNMpB7CCV66ZQ==",
+      "path": "htmlagilitypack/1.11.52",
+      "hashPath": "htmlagilitypack.1.11.52.nupkg.sha512"
     },
     "Microsoft.NETCore.Platforms/3.1.0": {
       "type": "package",
