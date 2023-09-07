@@ -5,6 +5,7 @@ using System.Security.AccessControl;
 using System.Text;
 using System.Xml;
 using Aspose.Words;
+using Aspose.Pdf;
 using Aspose.Words.Saving;
 using DocumentFormat.OpenXml.Drawing.Charts;
 using DocumentFormat.OpenXml.ExtendedProperties;
@@ -24,9 +25,9 @@ namespace HTMLToWordConversionWithAspose
     {
         static void Main(string[] args)
         {
-            string htmlFilePath = "D:\\github\\Converter\\HTMLToWord\\HTMLToWord\\HTMLDocument.html";
+            string htmlFilePath = "C:\\PDFConverter\\Converter\\HTMLToWord\\HTMLToWord\\StatementFluentAssembled.docx";
             string dynamicHTMLFilePath = "D:\\github\\Converter\\HTMLToWord\\HTMLToWord\\Dynamic.html";
-            string outputDirectory = "D:\\github\\Converter\\HTMLToWord\\HTMLToWord";
+            string outputDirectory = "C:\\PDFConverter\\Converter\\HTMLToWord\\HTMLToWord";
 
 
 
@@ -54,19 +55,20 @@ namespace HTMLToWordConversionWithAspose
 
             // CONVERTING USING HTMLAGILITYPACK
 
-            using (WordprocessingDocument doc = WordprocessingDocument.Create(wordFilePath, WordprocessingDocumentType.Document))
-            {
-                MainDocumentPart mainPart = doc.AddMainDocumentPart();
-                mainPart.Document = new DocumentFormat.OpenXml.Wordprocessing.Document();
-                DocumentFormat.OpenXml.Wordprocessing.Body body = mainPart.Document.AppendChild(new DocumentFormat.OpenXml.Wordprocessing.Body());
+            //using (WordprocessingDocument doc = WordprocessingDocument.Create(wordFilePath, WordprocessingDocumentType.Document))
+            //{
+            //    MainDocumentPart mainPart = doc.AddMainDocumentPart();
+            //    mainPart.Document = new DocumentFormat.OpenXml.Wordprocessing.Document();
+            //    DocumentFormat.OpenXml.Wordprocessing.Body body = mainPart.Document.AppendChild(new DocumentFormat.OpenXml.Wordprocessing.Body());
 
-                // Load HTML content using HtmlAgilityPack
-                var htmlDocument = new HtmlDocument();
-                htmlDocument.LoadHtml(htmlContent);
+            //    // Load HTML content using HtmlAgilityPack
+            //    var htmlDocument = new HtmlDocument();
+            //    htmlDocument.LoadHtml(htmlContent);
 
-                // Convert parsed HTML to styled Word elements
-                ConvertHtmlToWord(htmlDocument.DocumentNode.ChildNodes, body);
-            }
+            //    // Convert parsed HTML to styled Word elements
+            //    ConvertHtmlToWord(htmlDocument.DocumentNode.ChildNodes, body);
+            //}
+            ConvertWordToPDFWIthAspose(htmlFilePath, outputDirectory);
             Console.WriteLine("HTML to Word conversion completed using Aspose.Words.");
         }
 
@@ -78,9 +80,16 @@ namespace HTMLToWordConversionWithAspose
             builder.InsertHtml(htmlContent);
             //builder.InsertChart(htmlConten)
 
-            doc.Save(outputFilePath, SaveFormat.Docx);
+            doc.Save(outputFilePath, Aspose.Words.SaveFormat.Docx);
         }
 
+        static void ConvertWordToPDFWIthAspose(string wordfilepath, string outputFilePath)
+        {
+            Aspose.Words.Document doc = new Aspose.Words.Document(wordfilepath);
+
+            Aspose.Words.Saving.PdfSaveOptions saveOptions = new Aspose.Words.Saving.PdfSaveOptions();
+            doc.Save(outputFilePath, saveOptions);
+        }
 
         // this method was created for trying data binding ignore this for now
         static byte[] ReplacePlaceholders(byte[] templateBytes, string title, string content)
